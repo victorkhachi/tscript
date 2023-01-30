@@ -1,0 +1,22 @@
+module numbers
+
+imports Common 
+imports tscript2
+
+context-free syntax
+	Exp.Int    = <<INT>>
+	Exp.Neg    = [-[Exp]]
+	Exp.Pow    = <<Exp> ** <Exp>>{right}
+	Exp.Add    = <<Exp> + <Exp>> {left}
+	Exp.Sub    = <<Exp> - <Exp>> {left}
+	Exp.Mul    = <<Exp> * <Exp>> {left}
+	Exp.Div    = <<Exp> / <Exp>> {left}
+	Exp.Mod    = <<Exp> % <Exp>> {left}
+	
+	Type.int = <int>
+	
+context-free priorities // PEMDAS
+	Exp.Mul > Exp.Div > Exp.Add > Exp.Sub
+	
+
+	

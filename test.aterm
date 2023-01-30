@@ -1,0 +1,37 @@
+Start(
+  [ Bind(Decl(str(), "name"), Str("\"kachi\""))
+  , Bind(Decl(str(), "otherName"), Var(Id("name")))
+  , Bind(
+      Struct(
+        [Decl(str(), "names"), Decl(int(), "age"), Decl(Bool(), "isMarried")]
+      )
+    , Var(Id("name"))
+    )
+  , Bind(
+      Id("person")
+    , Object(
+        Obj(
+          [ Object(Pair(Var(Id("name")), Str("\"kachi\"")))
+          , Object(Pair(Var(Id("age")), Int("2")))
+          ]
+        )
+      )
+    )
+  , Bind(Id("age"), Val("person", Var(Id("age"))))
+  , Exp(Func(DeclN("name", [Exp(Str("\"kachi\""))])))
+  , Bind(
+      Id("name")
+    , Func(
+        ArrP(
+          Decl(str(), "name")
+        , [Exp(Ret(Str("\"kachi\"")))]
+        )
+      )
+    )
+  , Exp(
+      Func(
+        App(Call("get", Str("\"kachi\"")), Var(Id("age")))
+      )
+    )
+  ]
+)

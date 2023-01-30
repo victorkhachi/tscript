@@ -1,0 +1,23 @@
+str name = "kachi";
+
+str otherName= name;
+
+{str names,int age,bool isMarried}= name;
+
+person={name:"kachi",age:2};
+
+age= person[age];
+
+function name(){
+ "kachi";
+};
+
+ name =(str name)=>{
+   return "kachi" ;
+};
+
+
+
+
+
+

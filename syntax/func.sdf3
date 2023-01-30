@@ -1,0 +1,42 @@
+module func
+
+imports Common
+
+imports tscript2
+
+
+context-free sorts
+
+Function 
+
+context-free syntax
+
+
+
+Exp.Func = <<Function>>
+
+Function.DeclNP = <function <ID*> (<Var*>){  
+                   <{Stmt "\n"}+>
+                  }>
+
+
+Function.Arr = [([Var*])=> {
+                 [{Stmt "\n"}+]
+               }]
+               
+Function.Call= <<ID>(<Exp*>)>
+
+Function.App= <<Function>.<Exp>>
+               
+lexical syntax
+
+ID = "function" {reject}
+
+template options
+
+ID = keyword {reject}
+keyword -/- [a-zA-Z0-9]
+  
+//type[] name =[{exp ','}*]
+  
+  

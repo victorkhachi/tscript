@@ -1,0 +1,38 @@
+module bool
+
+imports Common
+imports tscript2
+
+context-free sorts
+
+context-free syntax
+
+Type.Bool= <bool>
+
+Exp.Or  = <<Exp> || <Exp>>{left}
+Exp.And = <<Exp> && <Exp>>{left}
+Exp.Not = <!<Exp>>
+Exp.Neq = <<Exp>!=<Exp>>{non-assoc}
+Exp.Eq  = <<Exp>==<Exp>>{non-assoc}
+Exp.Gt= [[Exp]>[Exp]] {non-assoc}
+Exp.Lt = [[Exp]<[Exp]]{non-assoc}
+
+Stmt.IfElse = <if (<Exp>){
+                 <{Stmt "\n"}+>
+                 }
+             else {
+                 <{Stmt "\n"}+>
+                 } >
+Stmt.If = <if(<Exp>)
+           <{Stmt "\n"}+>
+          >
+
+
+lexical syntax
+ID = "true" {reject}
+ID = "false" {reject}
+
+
+context-free priorities
+
+Exp.Gt>{non-assoc:Exp.Lt}>Exp.Or

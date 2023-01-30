@@ -1,0 +1,52 @@
+module pp
+
+imports
+  libstratego-lib
+
+imports
+
+  libstratego-gpp
+  libspoofax/sdf/pp
+  libspoofax/editor/refactoring/-
+  pp/tscript2-parenthesize
+  pp/tscript2-pp
+
+rules
+
+  editor-format:
+    (node, _, ast, path, project-path) -> (filename, result)
+    with
+      ext      := <get-extension> path
+    ; filename := <guarantee-extension(|$[pp.[ext]])> path
+    ; result   := <pp-debug> node
+
+rules
+  
+  pp-tscript2-string =
+    parenthesize-tscript2
+    ; prettyprint-tscript2-start-symbols
+    ; !V([], <id>)
+    ; box2text-string(|120)
+      
+  pp-partial-tscript2-string =
+    parenthesize-tscript2
+    ; prettyprint-tscript2
+    ; !V([], <id>)
+    ; box2text-string(|120)
+    
+  pp-partial-tscript2-string(|sort) =
+    parenthesize-tscript2
+    ; prettyprint-tscript2(|sort)
+    ; !V([], <id>)
+    ; box2text-string(|120)  
+      
+  pp-debug :
+    ast -> result
+    with
+       result := <pp-tscript2-string> ast
+    <+ <bottomup(try(not(is-string); not(is-list); not(pp-tscript2-string); debug(!"cannot pp ")))> ast
+    ;  result := ""
+
+rules
+  
+  construct-textual-change = construct-textual-change(pp-partial-tscript2-string, parenthesize, override-reconstruction, resugar)

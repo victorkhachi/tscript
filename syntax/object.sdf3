@@ -1,0 +1,18 @@
+module object
+
+imports Common
+imports tscript2
+context-free sorts
+
+Obj
+context-free syntax
+
+ Exp.Object= <<Obj>>
+ 
+ Obj.Pair= <<Exp>:<Exp>>
+ 
+ Obj.Obj = <{<{Exp ","}+>}>
+ 
+ Exp.Val =<<ID>.<Exp>>
+ 
+ 

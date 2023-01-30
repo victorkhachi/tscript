@@ -1,0 +1,13 @@
+module strings
+
+imports Common
+imports tscript2
+
+context-free sorts Lit
+	
+
+context-free syntax // `some text ${num}`
+	Exp.Str = <<STRING>>
+	
+	
+	Type.str = <str>

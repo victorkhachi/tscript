@@ -1,0 +1,12 @@
+module variable
+
+imports Common
+imports tscript2
+
+context-free syntax
+
+ Var.Id = <<ID>:<Type>>
+   
+ Var.Obj = <<{ID: Type ",\n"}+>>
+ Var.Arr = <[<Var>]>
+   

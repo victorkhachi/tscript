@@ -1,0 +1,49 @@
+module tscript2
+
+imports Common
+imports numbers
+imports strings
+imports bool
+imports func
+imports object
+
+context-free start-symbols
+  
+  Start
+
+context-free sorts
+
+  Start Stmt Bind Exp Type Var 
+
+context-free syntax
+  
+ Start.Empty = <>
+
+Start.Start = <<{Stmt "\n"}+>>
+	
+Exp = <(<Exp>)> {bracket}
+
+   Exp.Var= <<Var>>
+   Var.Id = <<ID>>
+//  
+   Var.Decl = <<Type> <ID>>
+//   
+   Var.Struct = <{<{Var ","}+>}>
+   
+	Exp.Ret  = <return <Exp>> {non-assoc}
+	
+    Stmt.Bind  = <<Var> = <Exp>;> // variable declaration
+	
+	Stmt.Exp = <<Exp>;> // statements must end with ;
+	
+	 
+	
+     
+	
+	
+	
+	
+	
+	
+	
+	
