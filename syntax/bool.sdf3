@@ -7,7 +7,7 @@ context-free sorts
 
 context-free syntax
 
-Type.Bool= <bool>
+
 
 Exp.Or  = <<Exp> || <Exp>>{left}
 Exp.And = <<Exp> && <Exp>>{left}

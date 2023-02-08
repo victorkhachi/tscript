@@ -10,4 +10,4 @@ context-free syntax // `some text ${num}`
 	Exp.Str = <<STRING>>
 	
 	
-	Type.str = <str>
+	

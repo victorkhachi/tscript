@@ -1,0 +1,22 @@
+module Array
+
+imports 
+tscript2
+Common
+
+context-free sorts 
+ Array
+context-free syntax
+
+Exp.Array= <<Array>>
+
+Array.Exp= <[<{Exp ","}*>]>
+Array.Index= <<Array>[<Exp>]>
+
+
+
+
+
+
+
+

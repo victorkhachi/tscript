@@ -6,6 +6,9 @@ imports strings
 imports bool
 imports func
 imports object
+imports Array
+imports type
+imports loops
 
 context-free start-symbols
   
@@ -16,6 +19,7 @@ context-free sorts
   Start Stmt Bind Exp Type Var 
 
 context-free syntax
+
   
  Start.Empty = <>
 

@@ -1,0 +1,11 @@
+module type
+
+imports Common
+imports tscript2
+
+
+context-free syntax
+Type.Bool= <bool>
+Type.str = <str>
+Type.int = <int>
+Type.arr = <<Type>[]>

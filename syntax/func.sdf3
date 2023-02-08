@@ -15,12 +15,12 @@ context-free syntax
 
 Exp.Func = <<Function>>
 
-Function.DeclNP = <function <ID*> (<Var*>){  
+Function.Decl = <function <ID*> (<Var*>){  
                    <{Stmt "\n"}+>
                   }>
 
 
-Function.Arr = [([Var*])=> {
+Function.Arr = [([{Exp ","}*])=> {
                  [{Stmt "\n"}+]
                }]
                

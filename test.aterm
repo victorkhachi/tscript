@@ -1,9 +1,12 @@
 Start(
-  [ Bind(Decl(str(), "name"), Str("\"kachi\""))
+  [ Exp(Var(Decl(str(), "name")))
   , Bind(Decl(str(), "otherName"), Var(Id("name")))
   , Bind(
       Struct(
-        [Decl(str(), "names"), Decl(int(), "age"), Decl(Bool(), "isMarried")]
+        [ Decl(arr(str()), "names")
+        , Decl(arr(int()), "age")
+        , Decl(Bool(), "isMarried")
+        ]
       )
     , Var(Id("name"))
     )
@@ -18,19 +21,48 @@ Start(
       )
     )
   , Bind(Id("age"), Val("person", Var(Id("age"))))
-  , Exp(Func(DeclN("name", [Exp(Str("\"kachi\""))])))
+  , Exp(
+      Func(
+        Decl(["name"], [], [Exp(Str("\"kachi\""))])
+      )
+    )
   , Bind(
       Id("name")
     , Func(
-        ArrP(
-          Decl(str(), "name")
-        , [Exp(Ret(Str("\"kachi\"")))]
+        Arr(
+          [ Array(
+              Exp(
+                [Var(Decl(str(), "name")), Var(Decl(int(), "age"))]
+              )
+            )
+          ]
+        , [ Loop(
+              For(
+                Bind(Id("i"), Int("0"))
+              , "array"
+              , Add(Var(Id("i")), Int("1"))
+              , []
+              )
+            )
+          ]
         )
       )
     )
   , Exp(
-      Func(
-        App(Call("get", Str("\"kachi\"")), Var(Id("age")))
+      Func(App(Call("get", []), Var(Id("age"))))
+    )
+  , Bind(
+      Decl(arr(str()), "name")
+    , Array(Exp([Str("\"kachi\""), Str("\"obi\"")]))
+    )
+  , Bind(
+      Id("person")
+    , Object(
+        Obj(
+          [ Object(Pair(Var(Decl(str(), "name")), Str("\"kachi\"")))
+          , Object(Pair(Var(Decl(str(), "place")), Str("\"lagos\"")))
+          ]
+        )
       )
     )
   ]

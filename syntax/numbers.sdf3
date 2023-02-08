@@ -13,7 +13,7 @@ context-free syntax
 	Exp.Div    = <<Exp> / <Exp>> {left}
 	Exp.Mod    = <<Exp> % <Exp>> {left}
 	
-	Type.int = <int>
+	
 	
 context-free priorities // PEMDAS
 	Exp.Mul > Exp.Div > Exp.Add > Exp.Sub

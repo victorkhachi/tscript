@@ -1,20 +1,32 @@
-str name = "kachi";
+str name ;
 
 str otherName= name;
 
-{str names,int age,bool isMarried}= name;
+{str[] names,int[] age,bool isMarried}= name;
 
 person={name:"kachi",age:2};
 
-age= person[age];
+age= person.age;
 
 function name(){
  "kachi";
 };
 
- name =(str name)=>{
-   return "kachi" ;
+ name =([str name,int age])=>{
+ 
+  for(let i=0;array;i+1){
+     name();
+  } 
 };
+
+get().age;
+
+str[] name= ["kachi","obi"];
+
+person= {str name:"kachi", str place: "lagos"};
+
+
+
 
 
 

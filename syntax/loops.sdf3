@@ -1,0 +1,14 @@
+module loops
+
+imports tscript2
+Common
+
+
+context-free sorts Loop
+context-free syntax
+
+Stmt.Loop= <<Loop>>
+
+Loop.For=< for ( let <Stmt> <ID>; <Exp>){
+       <{Stmt "\n"}*>
+}>
